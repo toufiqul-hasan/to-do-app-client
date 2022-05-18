@@ -5,20 +5,30 @@ import "./App.css";
 import Login from "./Components/Login/Login";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Signup from "./Components/Signup/Signup";
+import AddTask from "./Components/ToDo/AddTask";
+import MyTask from "./Components/ToDo/MyTask";
 import ToDo from "./Components/ToDo/ToDo";
 
 function App() {
   return (
-    <div>
+    <div className="container mt-5">
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<ToDo />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route
-          path="/todo"
+          path="/mytask"
           element={
             <RequireAuth>
-              <ToDo />
+              <MyTask />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/addtask"
+          element={
+            <RequireAuth>
+              <AddTask />
             </RequireAuth>
           }
         />
