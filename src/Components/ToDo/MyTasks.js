@@ -5,7 +5,11 @@ import { Card } from "react-bootstrap";
 const MyTasks = ({ task, reload, setReload }) => {
   const { _id, name, description } = task;
 
-  const handleProductDelete = () => {
+  const handleTaskComplete = () => {
+    toast("Task Completed");
+  };
+
+  const handleTaskDelete = () => {
     const proceed = window.confirm("Do you really want to delete?");
     if (proceed) {
       const url = `http://localhost:5000/task/${_id}`;
@@ -25,14 +29,17 @@ const MyTasks = ({ task, reload, setReload }) => {
       <Card>
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-
           <Card.Text>{description}</Card.Text>
-
           <div className="d-flex">
-            <button className="btn btn-primary mx-1">Complete</button>
+            <button
+              className="btn btn-primary mx-1"
+              onClick={() => handleTaskComplete()}
+            >
+              Complete
+            </button>
             <button
               className="btn btn-danger"
-              onClick={() => handleProductDelete()}
+              onClick={() => handleTaskDelete()}
             >
               Delete
             </button>
