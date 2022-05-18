@@ -10,11 +10,12 @@ const AddTask = () => {
   const handleAddItem = (event) => {
     event.preventDefault();
     const email = user.email;
+    const completed = false;
     const name = event.target.name.value;
     const description = event.target.description.value;
-    const info = { email, name, description };
+    const info = { email, completed, name, description };
 
-    fetch("http://localhost:5000/task", {
+    fetch("https://lit-atoll-93803.herokuapp.com/task", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -21,7 +21,7 @@ const MyTask = () => {
     setLoading(true);
     const getTasks = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/mytask?email=${email}`;
+      const url = `https://lit-atoll-93803.herokuapp.com/mytask?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setTask(data);

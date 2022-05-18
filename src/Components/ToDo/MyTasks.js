@@ -12,7 +12,7 @@ const MyTasks = ({ task, reload, setReload }) => {
   const handleTaskDelete = () => {
     const proceed = window.confirm("Do you really want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/task/${_id}`;
+      const url = `https://lit-atoll-93803.herokuapp.com/task/${_id}`;
       fetch(url, {
         method: "DELETE",
       })
