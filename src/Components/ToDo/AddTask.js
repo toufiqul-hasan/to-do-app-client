@@ -1,11 +1,15 @@
 import React from "react";
 import { auth } from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const AddTask = () => {
   const [user] = useAuthState(auth);
+  const handleSignOut = () => {
+    signOut(auth);
+  };
 
   const handleAddItem = (event) => {
     event.preventDefault();
@@ -45,11 +49,14 @@ const AddTask = () => {
           <button className="btn btn-primary">Submit</button>
         </form>
       </div>
-      <div className="text-center">
-        <Link to="/mytask">
-          <button className="btn btn-primary">My Task</button>
-        </Link>
-      </div>
+      <div className="d-flex justify-content-center mb-5">
+            <Link to="/mytask">
+              <button className="btn btn-primary mx-1">My Task</button>
+            </Link>
+            <button className="btn btn-primary" onClick={handleSignOut}>
+              Log Out
+            </button>
+          </div>
     </div>
   );
 };

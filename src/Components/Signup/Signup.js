@@ -81,7 +81,7 @@ const Signup = () => {
   }, [hookError]);
 
   const navigate = useNavigate();
-  const from = "/";
+  const from = "/login";
 
   useEffect(() => {
     if (user) {
@@ -91,7 +91,7 @@ const Signup = () => {
 
   if (loading) {
     return (
-      <div class="d-flex align-items-center justify-content-center m-auto">
+      <div className="d-flex align-items-center justify-content-center m-auto">
         <Spinner animation="border" variant="dark" />
       </div>
     );

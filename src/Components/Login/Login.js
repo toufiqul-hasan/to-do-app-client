@@ -108,6 +108,12 @@ const Login = () => {
         <Nav.Link as={Link} to="/signup">
           Don't have an account? Sign Up!
         </Nav.Link>
+        <br />
+        <div className="text-center">
+        <Link to="/">
+          <button className="btn btn-primary">Home</button>
+        </Link>
+      </div>
       </form>
     </div>
   );
