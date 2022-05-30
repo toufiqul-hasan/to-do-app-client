@@ -47,7 +47,10 @@ const Login = () => {
     event.preventDefault();
     await signInWithEmailAndPassword(userInfo.email, userInfo.password);
     const email = userInfo.email;
-    const { data } = await axios.post("https://lit-atoll-93803.herokuapp.com/login",{ email });
+    const { data } = await axios.post(
+      "https://simple-rest-to-do-app.herokuapp.com/login",
+      { email }
+    );
     localStorage.setItem("accessToken", data.accessToken);
   };
 
@@ -85,7 +88,7 @@ const Login = () => {
   }
 
   return (
-    <div className="input-container mt-3 mb-5">
+    <div className="container input-container mt-3 mb-5">
       <div className="title">LOGIN</div>
       <form className="login-form" onSubmit={handleLogin}>
         <input
@@ -105,16 +108,15 @@ const Login = () => {
         <br />
         <button className="btn btn-primary">Login</button>
         <br />
-        <Nav.Link as={Link} to="/signup">
-          Don't have an account? Sign Up!
-        </Nav.Link>
-        <br />
-        <div className="text-center">
-        <Link to="/">
-          <button className="btn btn-primary">Home</button>
-        </Link>
-      </div>
       </form>
+      <div className="d-flex align-items-center">
+        <div style={{ height: "1px" }} className="bg-primary w-50"></div>
+        <p className="mt-2 px-2">Or</p>
+        <div style={{ height: "1px" }} className="bg-primary w-50"></div>
+      </div>
+      <Nav.Link as={Link} to="/signup">
+        Don't have an account? Sign Up!
+      </Nav.Link>
     </div>
   );
 };

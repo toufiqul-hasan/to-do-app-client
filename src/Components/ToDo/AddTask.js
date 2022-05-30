@@ -1,16 +1,10 @@
 import React from "react";
 import { auth } from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
 
 const AddTask = () => {
   const [user] = useAuthState(auth);
-  const handleSignOut = () => {
-    signOut(auth);
-  };
-
   const handleAddItem = (event) => {
     event.preventDefault();
     const email = user.email;
@@ -19,7 +13,7 @@ const AddTask = () => {
     const description = event.target.description.value;
     const info = { email, completed, name, description };
 
-    fetch("https://lit-atoll-93803.herokuapp.com/task", {
+    fetch("https://simple-rest-to-do-app.herokuapp.com/task", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,29 +28,19 @@ const AddTask = () => {
   };
 
   return (
-    <div>
-      <div className="input-container mt-3 mb-5">
-        <div className="title">ADD TASK</div>
-        <form className="login-form" onSubmit={handleAddItem}>
-          <input name="name" type="text" placeholder="Task Name" required />
-          <textarea
-            name="description"
-            type="text"
-            placeholder="Task Description"
-            required
-          />
-          <br />
-          <button className="btn btn-primary">Submit</button>
-        </form>
-      </div>
-      <div className="d-flex justify-content-center mb-5">
-            <Link to="/mytask">
-              <button className="btn btn-primary mx-1">My Task</button>
-            </Link>
-            <button className="btn btn-primary" onClick={handleSignOut}>
-              Log Out
-            </button>
-          </div>
+    <div className="container input-container mt-3 mb-5">
+      <div className="title">ADD TASK</div>
+      <form className="login-form" onSubmit={handleAddItem}>
+        <input name="name" type="text" placeholder="Task Name" required />
+        <textarea
+          name="description"
+          type="text"
+          placeholder="Task Description"
+          required
+        />
+        <br />
+        <button className="btn btn-primary">Submit</button>
+      </form>
     </div>
   );
 };

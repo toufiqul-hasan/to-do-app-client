@@ -5,12 +5,10 @@ import MyTasks from "./MyTasks";
 import { Spinner } from "react-bootstrap";
 import axiosPrivate from "../../api/axiosPrivate";
 import { signOut } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MyTask = () => {
-  const handleSignOut = () => {
-    signOut(auth);
-  };
+  
   const [user] = useAuthState(auth);
   const [task, setTask] = useState([]);
   const [reload, setReload] = useState(true);
@@ -21,7 +19,7 @@ const MyTask = () => {
     setLoading(true);
     const getTasks = async () => {
       const email = user.email;
-      const url = `https://lit-atoll-93803.herokuapp.com/mytask?email=${email}`;
+      const url = `https://simple-rest-to-do-app.herokuapp.com/mytask?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setTask(data);
@@ -43,7 +41,7 @@ const MyTask = () => {
           <Spinner animation="border" variant="dark" />
         </div>
       ) : (
-        <div>
+        <div className="container">
           <div className="title mt-3 mb-5">MY TASK</div>
           <div>
             {task.map((task) => (
@@ -54,14 +52,6 @@ const MyTask = () => {
                 setReload={setReload}
               ></MyTasks>
             ))}
-          </div>
-          <div className="d-flex justify-content-center mb-5">
-            <Link to="/addtask">
-              <button className="btn btn-primary mx-1">Add Task</button>
-            </Link>
-            <button className="btn btn-primary" onClick={handleSignOut}>
-              Log Out
-            </button>
           </div>
         </div>
       )}

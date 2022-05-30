@@ -98,7 +98,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="input-container mt-3 mb-5">
+    <div className="container input-container mt-3 mb-5">
       <div className="title">SIGN UP</div>
       <form className="login-form" onSubmit={handleLogin}>
         <input
