@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
-import MyTasks from "./MyTasks";
 import { Spinner } from "react-bootstrap";
 import axiosPrivate from "../../api/axiosPrivate";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import MyTasks from "./MyTasks";
 
 const MyTask = () => {
-  
+
   const [user] = useAuthState(auth);
   const [task, setTask] = useState([]);
   const [reload, setReload] = useState(true);

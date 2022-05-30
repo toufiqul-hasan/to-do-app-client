@@ -1,7 +1,7 @@
 import React from "react";
-import { toast } from "react-toastify";
 import { Card } from "react-bootstrap";
 import { FaCheck, FaTrash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const MyTasks = ({ task, reload, setReload }) => {
   const { _id, name, description, completed } = task;

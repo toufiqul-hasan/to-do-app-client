@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import "./Home.css";
 
 const Home = () => {
+  
   const [user] = useAuthState(auth);
   return (
     <div className="container text-center mt-3">

@@ -33,7 +33,6 @@
   color: red;
   margin: 10px;
 }
-
 .error-message::before {
   content: "❌ ";
 }
