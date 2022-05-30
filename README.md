@@ -10,7 +10,7 @@
 
 - It's a simple task organizer website.
 - User can easily create their account.
-- After successfully creating an account, users can add task, delete task & done the task.
+- After successfully creating an account, users can add task, delete task & complete the task.
 - Only logged in users can use this website.
 - User can log in using Email & Password.
 
