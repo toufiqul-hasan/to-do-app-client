@@ -13,7 +13,7 @@ const AddTask = () => {
     const description = event.target.description.value;
     const info = { email, completed, name, description };
 
-    fetch("https://simple-rest-to-do-app.herokuapp.com/task", {
+    fetch("https://to-do-yzxk.onrender.com/task", {
       method: "POST",
       headers: {
         "content-type": "application/json",

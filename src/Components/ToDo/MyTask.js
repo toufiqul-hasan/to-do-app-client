@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import MyTasks from "./MyTasks";
 
 const MyTask = () => {
-
   const [user] = useAuthState(auth);
   const [task, setTask] = useState([]);
   const [reload, setReload] = useState(true);
@@ -19,7 +18,7 @@ const MyTask = () => {
     setLoading(true);
     const getTasks = async () => {
       const email = user.email;
-      const url = `https://simple-rest-to-do-app.herokuapp.com/mytask?email=${email}`;
+      const url = `https://to-do-yzxk.onrender.com/mytask?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setTask(data);

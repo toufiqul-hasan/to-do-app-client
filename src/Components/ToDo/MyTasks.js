@@ -10,7 +10,7 @@ const MyTasks = ({ task, reload, setReload }) => {
       const completed = task.completed;
       const complete = !completed;
       const newCompleted = { complete };
-      const url = `https://simple-rest-to-do-app.herokuapp.com/task/${_id}`;
+      const url = `https://to-do-yzxk.onrender.com/task/${_id}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -31,7 +31,7 @@ const MyTasks = ({ task, reload, setReload }) => {
   const handleTaskDelete = () => {
     const proceed = window.confirm("Do you really want to delete?");
     if (proceed) {
-      const url = `https://simple-rest-to-do-app.herokuapp.com/task/${_id}`;
+      const url = `https://to-do-yzxk.onrender.com/task/${_id}`;
       fetch(url, {
         method: "DELETE",
       })

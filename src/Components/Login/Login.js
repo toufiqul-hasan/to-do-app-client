@@ -47,10 +47,9 @@ const Login = () => {
     event.preventDefault();
     await signInWithEmailAndPassword(userInfo.email, userInfo.password);
     const email = userInfo.email;
-    const { data } = await axios.post(
-      "https://simple-rest-to-do-app.herokuapp.com/login",
-      { email }
-    );
+    const { data } = await axios.post("https://to-do-yzxk.onrender.com/login", {
+      email,
+    });
     localStorage.setItem("accessToken", data.accessToken);
   };
 
