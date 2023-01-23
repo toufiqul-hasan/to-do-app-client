@@ -24,7 +24,8 @@ const Login = () => {
     if (validEmail) {
       setUserInfo({ ...userInfo, email: event.target.value });
       setErrors({ ...errors, email: "" });
-    } else {
+    } 
+    else {
       setErrors({ ...errors, email: "Invalid email" });
       setUserInfo({ ...userInfo, email: "" });
     }

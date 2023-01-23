@@ -16,6 +16,7 @@ const MyTask = () => {
 
   useEffect(() => {
     setLoading(true);
+    
     const getTasks = async () => {
       const email = user.email;
       const url = `https://to-do-yzxk.onrender.com/mytask?email=${email}`;
